@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Privacy policy and account deletion for Horde Hollow, a zombie base-building game by Printed Theories.">
+<title>Horde Hollow Privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+
+/* Layout: one readable column, a camp-sign header band, numbered-free sections with a quick-jump bar */
+:root {
+  --bg: #F3F5F1;
+  --paper: #FFFFFF;
+  --fg: #1C2420;
+  --muted: #56625B;
+  --line: #D9E0DA;
+  --glow: #2E8B47;
+  --glow-soft: #E3F2E6;
+  --band: #1E2A23;
+  --band-fg: #E9F3EC;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111613; --paper: #18201B; --fg: #E4ECE6; --muted: #9AAAA0; --line: #2A352E;
+    --glow: #6FE38A; --glow-soft: #1D2E22; --band: #0B0F0C; --band-fg: #E4ECE6; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111613; --paper: #18201B; --fg: #E4ECE6; --muted: #9AAAA0; --line: #2A352E;
+  --glow: #6FE38A; --glow-soft: #1D2E22; --band: #0B0F0C; --band-fg: #E4ECE6; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+.band { background: var(--band); color: var(--band-fg); }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header .wrap { padding-block: 40px 28px; }
+.eyebrow { font-family: var(--display); letter-spacing: 0.14em; text-transform: uppercase; font-size: 15px; color: var(--glow); }
+.band .eyebrow { color: #7CFF8A; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(38px, 7vw, 56px); line-height: 1.02; margin: 6px 0 10px; text-wrap: balance; }
+.lede { color: color-mix(in srgb, var(--band-fg) 80%, transparent); margin: 0; max-width: 60ch; }
+.meta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: color-mix(in srgb, var(--band-fg) 70%, transparent); }
+nav.jump { border-bottom: 1px solid var(--line); background: var(--paper); }
+nav.jump .wrap { display: flex; flex-wrap: wrap; gap: 6px 18px; padding-block: 12px; font-size: 15px; }
+nav.jump a { color: var(--fg); text-decoration: none; border-bottom: 2px solid transparent; }
+nav.jump a:hover, nav.jump a:focus-visible { border-color: var(--glow); outline: none; }
+main .wrap { padding-block: 12px 56px; }
+section { padding-top: 28px; }
+h2 { font-family: var(--display); font-weight: 700; font-size: 28px; letter-spacing: 0.01em; margin: 0 0 8px; text-wrap: balance; }
+p, li { max-width: 66ch; }
+ul { padding-left: 20px; }
+li { margin: 4px 0; }
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 15px; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--display); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+.delete { margin-top: 12px; background: var(--glow-soft); border: 1px solid color-mix(in srgb, var(--glow) 40%, transparent); border-radius: 10px; padding: 18px 20px; }
+.delete h2 { color: var(--fg); }
+.steps { counter-reset: s; list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 8px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: baseline; }
+.steps li::before { content: counter(s); font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--glow); }
+.ui { font-family: var(--display); font-weight: 700; letter-spacing: 0.04em; }
+.email { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.email code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 15px; background: var(--paper); border: 1px solid var(--line); padding: 3px 8px; border-radius: 6px; user-select: all; word-break: break-all; }
+button.copy { font: 600 14px var(--body); color: var(--fg); background: var(--paper); border: 1px solid var(--line); border-radius: 6px; padding: 3px 10px; cursor: pointer; }
+button.copy:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+footer .wrap { padding-block: 20px 32px; }
+a { color: var(--glow); }
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <div class="eyebrow">Horde Hollow · Privacy Policy</div>
+    <h1>What Horde Hollow keeps about you, and how to delete it</h1>
+    <p class="lede">Horde Hollow is a zombie base-building game for Android made by Printed Theories. This page explains the small amount of data the game stores so your camp, friends and progress work online.</p>
+    <div class="meta"><span>Effective October 30, 2026</span><span>Developer: Printed Theories</span></div>
+  </div>
+</header>
+
+<nav class="jump" aria-label="On this page">
+  <div class="wrap">
+    <a href="#collect">What we collect</a>
+    <a href="#use">How it's used</a>
+    <a href="#share">Who sees it</a>
+    <a href="#kids">Age</a>
+    <a href="#delete-account">Delete your account</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <section id="collect">
+      <h2>What we collect</h2>
+      <p>You don't sign up with an email or password. The game creates an anonymous account the first time you play. We store:</p>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Data</th><th>Example</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Player ID</td><td>A random ID made by the game</td><td>Identifies your account so your save loads on your devices</td></tr>
+            <tr><td>Player name</td><td>The nickname you choose, like <em>Dekoda#4821</em></td><td>Shown to other players in rankings, squads, attacks and friend search</td></tr>
+            <tr><td>Game progress</td><td>Your camp layout, buildings, resources, heroes, trophies, missions</td><td>Cloud save, and so other players can attack or visit your camp</td></tr>
+            <tr><td>Friends list</td><td>Friends, friend requests, blocked players, squad invites</td><td>The Friends feature</td></tr>
+            <tr><td>Last seen time</td><td>When you last had the game open</td><td>Shows friends whether you're online</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>We don't collect your real name, email, phone number, contacts, photos, location, or payment details. The game has no ads and no advertising or analytics trackers.</p>
+    </section>
+
+    <section id="use">
+      <h2>How it's used</h2>
+      <ul>
+        <li>To save your progress and restore it on another device.</li>
+        <li>To run online features: attacks on other camps, the trophy rankings, co-op squads, and friends.</li>
+        <li>To stop cheating and abuse, for example by checking attack results on the server and letting you block players.</li>
+      </ul>
+      <p>We don't sell your data and don't use it for advertising.</p>
+    </section>
+
+    <section id="share">
+      <h2>Who sees it</h2>
+      <ul>
+        <li><strong>Other players</strong> can see your player name, trophies, camp level and camp layout, whether you're online (if you're friends), and your camp when they attack or visit it.</li>
+        <li><strong>Unity Gaming Services</strong> (Unity Technologies) hosts the game's accounts, cloud saves, rankings and multiplayer on our behalf. Unity processes this data only to provide those services. See <a href="https://unity.com/legal/privacy-policy" rel="noopener">Unity's privacy policy</a>.</li>
+      </ul>
+      <p>Data is sent over encrypted connections (HTTPS). We keep it until you delete your account.</p>
+    </section>
+
+    <section id="kids">
+      <h2>Age</h2>
+      <p>Horde Hollow is meant for players 13 and older. It isn't directed at children under 13, and we don't knowingly collect data from them. If you believe a child under 13 has an account, contact us and we'll delete it.</p>
+    </section>
+
+    <section id="delete-account" class="delete">
+      <h2>Delete your Horde Hollow account</h2>
+      <p>You can delete your account and all of its data from inside the game:</p>
+      <ol class="steps">
+        <li><span>Open Horde Hollow and tap <span class="ui">SETTINGS</span>.</span></li>
+        <li><span>Tap <span class="ui">DELETE ACCOUNT</span>.</span></li>
+        <li><span>Tap <span class="ui">DELETE FOREVER</span> to confirm. You need to be online.</span></li>
+      </ol>
+      <p>This permanently deletes your player ID, name, camp, progress, trophies and ranking, friends list and cloud save. You're removed from other players' friend lists and from name search. It can't be undone. The game then starts over on a new account.</p>
+      <p>If you can't open the game anymore, email us from any address with your player name (the full name with its # number, shown in Settings) and ask for deletion. We'll delete the account within 30 days and reply when it's done.</p>
+      <p class="email"><span>Email</span><code id="addr">printedtheories.official@gmail.com</code><button class="copy" type="button" id="copyBtn">Copy</button></p>
+      <p>Nothing is kept after deletion, except that copies may stay in the hosting provider's backups for a short time before they're overwritten.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>If we add features that collect more data (for example in-app purchases or clan chat), we'll update this page and the effective date above before they ship.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Questions about privacy or your data: printedtheories.official@gmail.com</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Horde Hollow is made by Printed Theories.</div>
+</footer>
+
+<script>
+document.getElementById("copyBtn").addEventListener("click", function () {
+  var btn = this, text = document.getElementById("addr").textContent;
+  function selectIt() {
+    var r = document.createRange(); r.selectNodeContents(document.getElementById("addr"));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = "Selected";
+  }
+  try {
+    navigator.clipboard.writeText(text).then(function () { btn.textContent = "Copied"; }, selectIt);
+  } catch (e) { selectIt(); }
+});
+</script>
+</body>
+</html>
